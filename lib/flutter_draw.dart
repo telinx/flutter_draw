@@ -74,10 +74,13 @@ Future<File> takeScreenshotAndSave() async {
 _askPermission() async {
   if (Platform.isIOS) {
     /*Map<PermissionGroup, PermissionStatus> permissions =
-    */await PermissionHandler().requestPermissions([PermissionGroup.photos]);
+    // */
+    // await PermissionHandler().requestPermissions([PermissionGroup.photos]);
+    await Permission.photos.request();
   } else {
-    /*PermissionStatus permission =*/ await PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.storage);
+    /*PermissionStatus permission =*/ 
+    // await PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
+    await Permission.storage.request();
   }
 }
 
